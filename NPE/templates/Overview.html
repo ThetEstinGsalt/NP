@@ -1,0 +1,397 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Document</title> -->
+    <title>{{Product.Name}}- NipaEnterprise</title>
+    <link rel="icon" type="image/x-icon" href="../static/icons/NPlogo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+<style>
+          svg *{
+        color: black;
+      }
+      .navlinks:hover{
+        color: #ad9773;
+
+      }
+ 
+</style>
+<body>
+    <header class="relative z-50 w-full h-24">
+        <div
+            class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0">
+    
+            <a href="/" class="relative flex items-center inline-block h-5 h-full font-black leading-none">
+              <img src="../static/icons/NPlogo.png" alt="" style="height: 3.7em;">
+                <!-- <svg class="w-auto h-6 text-indigo-600 fill-current" viewBox="0 0 194 116"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g fill-rule="evenodd">
+                        <path
+                            d="M96.869 0L30 116h104l-9.88-17.134H59.64l47.109-81.736zM0 116h19.831L77 17.135 67.088 0z" />
+                        <path d="M87 68.732l9.926 17.143 29.893-51.59L174.15 116H194L126.817 0z" />
+                    </g>
+                </svg> -->
+                <span class="ml-3 text-xl text-gray-800">Nipa Enterprise<span class="text-pink-500">.</span></span>
+            </a>
+    
+            <nav id="nav"
+                class="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-64 pt-5 mt-24 text-sm text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative">
+                <a  href="/"
+                    class="navlinks ml-0 mr-0 font-bold duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color">Home</a>
+                <a  href="/About"
+                    class="navlinks mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color ">About</a>
+                <a  href="/Contact"
+                    class="navlinks mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color ">Contact</a>
+                <a  href="/Products"
+                    class="navlinks font-bold duration-100 transition-color ">Products</a>
+    
+    
+    
+    
+    <!--                 
+                <div class="flex flex-col block w-full font-medium border-t border-gray-200 md:hidden">
+    
+    
+                  
+    
+                    <a href="#_" class="w-full py-2 font-bold text-center text-pink-500">Login</a>
+                    <a href="#_"
+                        class="relative inline-block w-full px-5 py-3 text-sm leading-none text-center text-white bg-indigo-700 fold-bold">Get
+                        Started</a>
+    
+    
+    
+    
+                </div> -->
+            </nav>
+            
+    
+    
+    
+           
+            <!-- <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1" >
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+              </svg>
+              <span class="sr-only">Search</span>
+            </button> -->
+    
+            <div class="relative hidden md:block" style="    margin-left: 2em;">
+              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+                <span class="sr-only">Search icon</span>
+              </div>
+              <input type="text" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search...">
+            </div>
+    
+            <div id="nav-mobile-btn"
+                class="absolute top-0 right-0 z-50 block w-6 mt-8 mr-10 cursor-pointer select-none md:hidden sm:mt-10">
+                <span class="block w-full h-1 mt-2 duration-200 transform bg-gray-800 rounded-full sm:mt-1"></span>
+                <span class="block w-full h-1 mt-1 duration-200 transform bg-gray-800 rounded-full"></span>
+            </div>
+    
+    
+    
+    
+    
+    
+            <!-- <div class="flex md:order-2">
+              <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1" >
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+                <span class="sr-only">Search</span>
+              </button>
+              <div class="relative hidden md:block">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                  </svg>
+                  <span class="sr-only">Search icon</span>
+                </div>
+                <input type="text" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search...">
+              </div>
+              <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-search" aria-expanded="false">
+                  <span class="sr-only">Open main menu</span>
+                  <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                  </svg>
+              </button>
+            </div> -->
+    
+    
+    
+    
+            
+        </div>
+    </header>
+    
+   
+
+
+
+
+
+
+    <section class="text-gray-600 body-font overflow-hidden">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="lg:w-4/5 mx-auto flex flex-wrap">
+            <img id="Image" alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src=../media/{{Product.Image1}}>
+            <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+              <h2 class="text-sm title-font text-gray-500 tracking-widest">NIPA ENTERPRISE</h2>
+              <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{Product.Name}}</h1>
+              <div class="flex mb-4">
+                <span class="flex items-center">
+               
+                  <span class="text-gray-600 ml-3" style="margin-left: auto;">{{Product.Usage}}</span>
+                </span>
+                <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">
+                  <a class="text-gray-500" href="https://www.facebook.com/Nipaenterprise/">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                    </svg>
+                  </a>
+                  <a class="text-gray-500"  href="https://api.whatsapp.com/send?phone=%2B8801705565010&data=ARB1z39d3dGMFBbJ6h5njIONzPSbJwrDapnZBlttqcrxhhlMc8OEjpNBPszxu6z0fznK5Vi2LxXf83llXc9B-hnbeTeZZxZb4H91Var2QljnZk-YN6Lnk3-bQdY5LtP7QP1f95DBsYazOfdVvT95AReGaA&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwAR0V2RIkwqrFK2FvqtMRP8cZXxEGZitUF5H2Ucv1lwKgF7U5cPhS82hsqXI">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24" style="    height: 1.8em;
+                    width: 2em;
+                    padding-left: 7px;">
+                        <path  d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                    </svg>
+                  </a>
+                  <a class="text-gray-500"  href="https://api.whatsapp.com/send?phone=%2B8801705565010&data=ARB1z39d3dGMFBbJ6h5njIONzPSbJwrDapnZBlttqcrxhhlMc8OEjpNBPszxu6z0fznK5Vi2LxXf83llXc9B-hnbeTeZZxZb4H91Var2QljnZk-YN6Lnk3-bQdY5LtP7QP1f95DBsYazOfdVvT95AReGaA&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwAR0V2RIkwqrFK2FvqtMRP8cZXxEGZitUF5H2Ucv1lwKgF7U5cPhS82hsqXI">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                    </svg>
+                  </a>
+                </span>
+              </div>
+              <p class="leading-relaxed">{{Product.Description}}</p>
+              <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
+                <div class="flex">
+                  <span class="mr-3">Product Views</span>
+                  <button  name="changing"id="1" class="ActivePic border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none" style="background-color:antiquewhite;"></button>
+                  <button  name="changing"id="2" class="ActivePic border-2 border-gray-300 ml-1 bg-white-700 rounded-full w-6 h-6 focus:outline-none"></button>
+                  <button  name="changing"id="3" class="ActivePic border-2 border-gray-300 ml-1 bg-white-500 rounded-full w-6 h-6 focus:outline-none"></button>
+                </div>
+                <div class="flex ml-6 items-center">
+                  <span class="mr-3">Available</span>
+                  <div class="relative">
+                    <select class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
+                    {%for sizes in size%}
+                      <option>{{sizes}}</option>
+                    
+                      {%endfor %}
+                    </select>
+                    <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
+                      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4" viewBox="0 0 24 24">
+                        <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex">
+                <span class="title-font font-medium text-2xl text-gray-900">{{stock}}</span>
+                <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded" style="background-color: #0B661a;">Order</button>
+                <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                  <a href="https://api.whatsapp.com/send?phone=%2B8801705565010&data=ARB1z39d3dGMFBbJ6h5njIONzPSbJwrDapnZBlttqcrxhhlMc8OEjpNBPszxu6z0fznK5Vi2LxXf83llXc9B-hnbeTeZZxZb4H91Var2QljnZk-YN6Lnk3-bQdY5LtP7QP1f95DBsYazOfdVvT95AReGaA&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwAR0V2RIkwqrFK2FvqtMRP8cZXxEGZitUF5H2Ucv1lwKgF7U5cPhS82hsqXI">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  
+                      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                    
+                    </svg>
+
+
+                  </a>
+                
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+      
+      
+  <footer class="px-4 pt-12 pb-8 text-white bg-white border-t border-gray-200">
+    <div class="container flex flex-col justify-between max-w-6xl px-4 mx-auto overflow-hidden lg:flex-row">
+        <div class="w-full pl-12 mr-4 text-left lg:w-1/4 sm:text-center sm:pl-0 lg:text-left">
+            <a href="/"
+                class="flex justify-start block text-left sm:text-center lg:text-left sm:justify-center lg:justify-start">
+                <span class="flex items-start sm:items-center">
+                  <img src="../static/icons/GDbell.png" alt="" style=" height:9em">
+                  
+                </span>
+            </a>
+            <p class="mt-6 mr-4 text-base text-gray-500" style="    padding-left: 0.6em;">Partnered With Golden Bell
+            </p>
+        </div>
+        <div class="block w-full pl-10 mt-6 text-sm lg:w-3/4 sm:flex lg:mt-0">
+            <ul class="flex flex-col w-full p-0 font-medium text-left text-gray-700 list-none">
+                <li class="inline-block px-3 py-2 mt-5 font-bold tracking-wide text-gray-800 uppercase md:mt-0">
+                    Product</li>
+  
+                <li><a href="/Search/Jute"
+                        class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Jute</a>
+                </li>
+                <li><a href="/Search/Fruits"
+                        class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Fruits</a>
+                </li>
+                <li><a href="/Search/Vegetables"
+                        class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Vegetables</a>
+                </li>
+                <li><a href="/Search/PetFlakes"
+                        class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Pet Flakes</a></li>
+            </ul>
+            <ul class="flex flex-col w-full p-0 font-medium text-left text-gray-700 list-none">
+                <li class="inline-block px-3 py-2 mt-5 font-bold tracking-wide text-gray-800 uppercase md:mt-0">
+                    Company</li>
+                <li><a href="#_"
+                        class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Golden Bell</a>
+                </li>
+                <li><a href="#_" class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Nipa Enterprise</a></li>
+            </ul>
+            <ul class="flex flex-col w-full p-0 font-medium text-left text-gray-700 list-none">
+                <li class="inline-block px-3 py-2 mt-5 font-bold tracking-wide text-gray-800 uppercase md:mt-0">
+                    Connect
+                </li>
+                <li><a href="/Contact"
+                        class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Contact Us</a></li>
+                <li><a href="/About"
+                        class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">About</a></li>
+                <li><a href="/About"
+                        class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">FAQ</a></li>
+            </ul>
+            <div class="flex flex-col w-full text-gray-700">
+                <div class="inline-block px-3 py-2 mt-5 font-bold text-gray-800 uppercase md:mt-0">Follow Us</div>
+                <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s" style="border-left: none;
+                margin-left: 0;
+                padding-left: 0;">
+                  <a class="text-gray-500" href="https://www.facebook.com/Nipaenterprise/" >
+                    <svg style="    height: 2em;
+                    width: 3em;" fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                    </svg>
+                  </a>
+                  <a class="text-gray-500" href="https://api.whatsapp.com/send?phone=%2B8801705565010&data=ARB1z39d3dGMFBbJ6h5njIONzPSbJwrDapnZBlttqcrxhhlMc8OEjpNBPszxu6z0fznK5Vi2LxXf83llXc9B-hnbeTeZZxZb4H91Var2QljnZk-YN6Lnk3-bQdY5LtP7QP1f95DBsYazOfdVvT95AReGaA&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwAR0V2RIkwqrFK2FvqtMRP8cZXxEGZitUF5H2Ucv1lwKgF7U5cPhS82hsqXI">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24" style="    height: 2.6em;
+                
+                    width: 4em;
+                    padding-left: 9px;
+                    padding-top: 2px;">
+                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
+                    </svg>
+                  </a>
+                  <a class="text-gray-500" href="https://api.whatsapp.com/send?phone=%2B8801705565010&data=ARB1z39d3dGMFBbJ6h5njIONzPSbJwrDapnZBlttqcrxhhlMc8OEjpNBPszxu6z0fznK5Vi2LxXf83llXc9B-hnbeTeZZxZb4H91Var2QljnZk-YN6Lnk3-bQdY5LtP7QP1f95DBsYazOfdVvT95AReGaA&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwAR0V2RIkwqrFK2FvqtMRP8cZXxEGZitUF5H2Ucv1lwKgF7U5cPhS82hsqXI" >
+                    <svg style="    height: 2em;
+                    width: 3em;" fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                    </svg>
+                  </a>
+                </span>
+             
+            </div>
+        </div>
+    </div>
+    <div class="pt-4 pt-6 mt-10 text-center text-gray-500 border-t border-gray-100">© 2020 Landmark. All rights
+        reserved.</div>
+  
+        <div class="pt-2 pt-4 mt-2 text-center text-gray-600 border-t border-gray-100">Distributed By <a>Themewagon</a></div>
+  </footer>
+      
+
+
+    
+    
+</body>
+
+
+<script>
+    window.addEventListener("contextmenu",(e)=>{
+        // alert("Content of this page is protected!!")
+        // e.preventDefault()
+    })
+   
+
+    // for(let i=0;i<buttons.length;i++){
+    //     buttons[i].addEventListener("click",()=>{
+            
+ 
+         
+            
+    //     })
+    // }
+
+    
+
+
+
+
+
+    if (document.getElementById('nav-mobile-btn')) {
+        document.getElementById('nav-mobile-btn').addEventListener('click', function () {
+            if (this.classList.contains('close')) {
+                document.getElementById('nav').classList.add('hidden');
+                this.classList.remove('close');
+            } else {
+                document.getElementById('nav').classList.remove('hidden');
+                this.classList.add('close');
+            }
+        });
+    }
+
+    let btns= Array.from(document.getElementsByClassName("ActivePic")) 
+    let image=document.getElementById("Image")
+    let buttons=document.getElementsByName("changing")
+    for(let i =0;i<btns.length;i++){
+        btns[i].addEventListener('click',()=>{
+            for(let j=0;j<btns.length;j++){
+                if(btns[j].style.background!=="white"){
+                    btns[j].style.background="white"
+                }
+
+            }
+
+            if(i==0){
+                image.src=`../media/{{Product.Image1}}`
+
+                
+            }
+            else if (i==1){
+                image.src=`../media/{{Product.Image2}}`
+
+
+            }
+            else{
+                image.src=`../media/{{Product.Image3}}`
+
+            }
+
+            btns[i].style.background="antiquewhite"
+        })
+    }
+    
+    let searchbar=document.getElementById("search-navbar")
+    searchbar.addEventListener("keydown", (e)=>{
+	  if(e.key === "Enter"){
+      let domain= window.location.href.split("/")[0]
+      window.location.href=`${domain}/Search/${searchbar.value}`
+    	
+    }
+})
+</script>
+</html>
